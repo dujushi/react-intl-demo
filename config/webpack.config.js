@@ -420,6 +420,13 @@ module.exports = function (webpackEnv) {
                       },
                     },
                   ],
+                  [
+                    "formatjs",
+                    {
+                      "idInterpolationPattern": "[sha512:contenthash:base64:6]",
+                      "ast": true
+                    }
+                  ],
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
                     require.resolve('react-refresh/babel'),
