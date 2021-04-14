@@ -23,8 +23,8 @@ jobs:
       - name: Upload Translation Keys
         run: |
           curl -s https://get.simplelocalize.io/install | bash
-          simplelocalize upload \
-            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}} \
-            --uploadPath SimpleLocalize/en.json \
-            --uploadFormat single-language-json \
+          simplelocalize upload
+            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}}
+            --uploadPath SimpleLocalize/en.json
+            --uploadFormat single-language-json
             --languageKey en
