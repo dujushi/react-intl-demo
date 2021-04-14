@@ -24,7 +24,7 @@ jobs:
         run: |
           curl -s https://get.simplelocalize.io/install | bash
           simplelocalize upload
-            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}}
+            --apiKey ${{secrets.SIMPLE_LOCALIZE_API_KEY}}
             --uploadPath SimpleLocalize/en.json
             --uploadFormat single-language-json
             --languageKey en

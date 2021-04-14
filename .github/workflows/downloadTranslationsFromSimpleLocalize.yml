@@ -19,7 +19,7 @@ jobs:
         run: |
           curl -s https://get.simplelocalize.io/install | bash
           simplelocalize download \
-            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}} \
+            --apiKey ${{secrets.SIMPLE_LOCALIZE_API_KEY}} \
             --downloadPath SimpleLocalize/{lang}.json \
             --downloadFormat single-language-json
 
@@ -34,8 +34,8 @@ jobs:
 
       - name: Commit translation updates
         run: |
-          git config user.email "${{secrets.GITMESSAGEEMAIL}}"
-          git config user.name "${{secrets.GITMESSAGENAME}}"
+          git config user.email "${{secrets.GIT_MESSAGE_EMAIL}}"
+          git config user.name "${{secrets.GIT_MESSAGE_NAME}}"
           git add src
           git commit -m "Update translations" || echo "No translation updates."
           git push
