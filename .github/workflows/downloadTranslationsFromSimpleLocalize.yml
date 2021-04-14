@@ -18,9 +18,9 @@ jobs:
       - name: Download Translations
         run: |
           curl -s https://get.simplelocalize.io/install | bash
-          simplelocalize download
-            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}}
-            --downloadPath SimpleLocalize/{lang}.json
+          simplelocalize download \
+            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}} \
+            --downloadPath SimpleLocalize/{lang}.json \
             --downloadFormat single-language-json
 
       - name: Compile Translations
