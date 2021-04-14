@@ -34,8 +34,8 @@ jobs:
 
       - name: Commit translation updates
         run: |
-          git config user.email ${{secrets.GITMESSAGEEMAIL}}
-          git config user.name ${{secrets.GITMESSAGENAME}}
+          git config user.email "${{secrets.GITMESSAGEEMAIL}}"
+          git config user.name "${{secrets.GITMESSAGENAME}}"
           git add src
           git commit -m "Update translations" || echo "No translation updates."
           git push
