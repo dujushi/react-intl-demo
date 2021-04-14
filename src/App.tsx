@@ -1,8 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import React from "react";
+import { useIntl } from "react-intl";
+
+import logo from "./logo.svg";
 
 function App() {
+  const { formatMessage } = useIntl();
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +23,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <p>
+        {formatMessage({
+          defaultMessage: "Hello everyone",
+        })}
+      </p>
     </div>
   );
 }
