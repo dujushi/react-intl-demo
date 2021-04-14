@@ -1,0 +1,41 @@
+name: Download Translations From SimpleLocalize
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Download-Translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+
+      - name: Download Translations
+        run: |
+          curl -s https://get.simplelocalize.io/install | bash
+          simplelocalize download
+            --apiKey ${{secrets.SIMPLELOCALIZEAPIKEY}}
+            --downloadPath SimpleLocalize/{lang}.json
+            --downloadFormat single-language-json
+
+      - name: Compile Translations
+        run: |
+          yarn install
+
+          for translationFile in SimpleLocalize/*.json
+          do
+            yarn compile $translationFile --ast --out-file src/lang/$(basename -- $translationFile) --format simple
+          done
+
+      - name: Commit translation updates
+        run: |
+          git config user.email ${{secrets.GITMESSAGEEMAIL}}
+          git config user.name ${{secrets.GITMESSAGENAME}}
+          git add src
+          git commit -m "Update translations" || echo "No translation updates."
+          git push
