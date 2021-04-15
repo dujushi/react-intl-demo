@@ -9,6 +9,42 @@
       "value": "who"
     }
   ],
+  "JW4ZUT": [
+    {
+      "options": {
+        "female": {
+          "value": [
+            {
+              "type": 0,
+              "value": "She"
+            }
+          ]
+        },
+        "male": {
+          "value": [
+            {
+              "type": 0,
+              "value": "He"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "They"
+            }
+          ]
+        }
+      },
+      "type": 5,
+      "value": "gender"
+    },
+    {
+      "type": 0,
+      "value": " répondra sous peu."
+    }
+  ],
   "eazPm5": [
     {
       "type": 0,
