@@ -12,6 +12,11 @@ function App() {
           defaultMessage: "Hello everyone",
         })}
       </p>
+      <p>
+        {formatMessage({
+          defaultMessage: "Hello {who}",
+        }, { who: 'World'})}
+      </p>
     </div>
   );
 }
